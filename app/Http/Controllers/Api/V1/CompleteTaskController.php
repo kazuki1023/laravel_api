@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use App\Http\Resources\TaskResource;
 use Illuminate\Http\Request;
 
 class CompleteTaskController extends Controller
@@ -15,6 +16,6 @@ class CompleteTaskController extends Controller
     {
         $task->is_completed = $request->is_completed;
         $task->save();
-        return response()->noContent();
+        return TaskResource::make($task);
     }
 }

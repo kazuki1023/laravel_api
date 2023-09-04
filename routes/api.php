@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::prefix('/v1')->group(function () {
+    // 以下で基本的なルーテクングを定義している！
     Route::apiResource('/tasks', TaskController::class);
     Route::patch('/tasks/{task}/complete', CompleteTaskController::class);
 });
